@@ -1,6 +1,6 @@
 {
   "name": "all-nvm",
-  "description": "Installs the same package globally in all versions of Node managed by NVM",
+  "description": "Run any NPM command (including install) in all versions of Node managed by NVM",
   "version": "0.0.0-semantic-release",
   "main": "index.js",
   "bin": {

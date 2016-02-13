@@ -1,5 +1,5 @@
 # all-nvm
-> Installs the same package globally in all versions of Node managed by NVM
+> Run any NPM command (including install) in all versions of Node managed by NVM
 
 [![NPM][all-nvm-icon] ][all-nvm-url]
 
