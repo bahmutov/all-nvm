@@ -10,6 +10,7 @@
     "nvm-all": "bin/all-nvm.js",
     "all": "bin/all-nvm.js"
   },
+  "preferGlobal": true,
   "scripts": {
     "test": "npm run lint",
     "lint": "standard --verbose *.js bin/*.js src/*.js",
