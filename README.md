@@ -22,7 +22,7 @@ like [npm-quick-run](https://github.com/bahmutov/npm-quick-run),
 
 I need to quickly install same tool in all Node versions.
 
-## Install and use
+## Install
 
     npm i -g all-nvm
 
@@ -31,14 +31,17 @@ Make `all-nvm` available in all Node versions right after install
 
     all npm i -g all-nvm
 
+## Use
+
 With `all-nvm` it is simple to run the same command in all Node versions managed by NVM.
 For example, if you want to [speed up NPM installs](https://github.com/npm/npm/issues/11283) 
 by removing the progress indicator
 
-    
+    all npm set progress=false
 
-This should solve the problem of global tools discussed in multiple issues 
-on [NVM tracker](https://github.com/creationix/nvm/issues).
+Install a global tool [as-a](https://github.com/bahmutov/as-a) in all Node versions
+
+    all npm i -g as-a
 
 ## Details
 
@@ -49,6 +52,15 @@ the specified Node version. For example
     nvm exec 4 node -v
     Running node v4.2.2 (npm v3.7.2)
     v4.2.2
+
+Since NVM itself is a shell script, one has to play games in order to shell a command, for example
+to run `nvm --version`
+
+    sh -c '. ~/.nvm/nvm.sh && nvm --version'
+
+and to run same command on a particular Node version
+
+    sh -c '. ~/.nvm/nvm.sh && nvm exec <node version> <command>'
 
 ### Small print
 
@@ -96,4 +108,3 @@ OTHER DEALINGS IN THE SOFTWARE.
 [all-nvm-ci-url]: https://travis-ci.org/bahmutov/all-nvm
 [semantic-image]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
 [semantic-url]: https://github.com/semantic-release/semantic-release
-
