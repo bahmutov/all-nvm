@@ -17,7 +17,8 @@ const hr = require('hr')
 function formNvmExec (commandWithOptions, nodeVersion) {
   la(is.array(commandWithOptions), 'missing command')
   la(is.unemptyString(nodeVersion), 'missing node version', nodeVersion)
-  return ['sh', '-c', '. ~/.nvm/nvm.sh && nvm exec 4 ' + commandWithOptions.join(' ')]
+  return ['sh', '-c', '. ~/.nvm/nvm.sh && nvm exec ' +
+    nodeVersion + ' ' + commandWithOptions.join(' ')]
 }
 
 function runCommandForVersion (command, nodeVersion) {
