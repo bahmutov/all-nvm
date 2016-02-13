@@ -4,7 +4,7 @@ const is = require('check-more-types')
 const runCommand = require('./src/run-command')
 const nvmApi = require('nvm-api')
 
-function runAll(commandWithOptions, api) {
+function runAll (commandWithOptions, api) {
   debug('loaded NVM api', api)
 
   const fullNvmCommand = ['nvm', 'exec', '4'].concat(commandWithOptions)

@@ -1,7 +1,7 @@
 {
   "name": "all-nvm",
-  "version": "1.0.0",
   "description": "Installs the same package globally in all versions of Node managed by NVM",
+  "version": "0.0.0-semantic-release",
   "main": "index.js",
   "bin": {
     "all-nvm": "bin/all-nvm.js",
@@ -14,11 +14,12 @@
     "test": "npm run lint",
     "lint": "standard --verbose *.js bin/*.js src/*.js",
     "commit": "commit-wizard",
-    "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";"
+    "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bahmutov/all-nvm.git"
+    "url": "https://github.com/bahmutov/all-nvm.git"
   },
   "keywords": [
     "nvm",
@@ -47,7 +48,8 @@
   "devDependencies": {
     "mocha": "2.4.5",
     "pre-git": "^3.3.0",
-    "standard": "^6.0.4"
+    "standard": "^6.0.4",
+    "semantic-release": "^4.3.5"
   },
   "config": {
     "pre-git": {
