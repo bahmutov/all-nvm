@@ -8,6 +8,16 @@
 
 Part of my favorite [little Node tools](https://glebbahmutov.com/blog/my-node-tools/)
 
+## Details
+
+I was inspired by the command `exec` already 
+[available in NVM](https://github.com/creationix/nvm#usage) - it runs any command in
+the specified Node version. For example
+
+    nvm exec 4 node -v
+    Running node v4.2.2 (npm v3.7.2)
+    v4.2.2
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2016
