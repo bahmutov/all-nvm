@@ -16,7 +16,9 @@
     "commit": "commit-wizard",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "test-version": "DEBUG=all-nvm node bin/all-nvm.js npm version"
+    "test-version": "DEBUG=all-nvm node bin/all-nvm.js npm version",
+    "test-progress": "node bin/all-nvm.js npm set progress=false",
+    "test-install-self": "node bin/all-nvm.js npm i -g all-nvm"
   },
   "repository": {
     "type": "git",

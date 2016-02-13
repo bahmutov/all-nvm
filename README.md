@@ -6,7 +6,39 @@
 [![Build status][all-nvm-ci-image] ][all-nvm-ci-url]
 [![semantic-release][semantic-image] ][semantic-url]
 
+## Inspiration
+
 Part of my favorite [little Node tools](https://glebbahmutov.com/blog/my-node-tools/)
+
+If you are like me, you have probably several Node versions installed locally and managed
+using [NVM](https://github.com/creationix/nvm). I also use bunch of small global tools
+like [npm-quick-run](https://github.com/bahmutov/npm-quick-run),
+[next-update](https://github.com/bahmutov/next-update), 
+[center-code](https://github.com/bahmutov/center-code). It is very frustrating to run
+
+    center <filename>
+    center: command not found
+    #$#$! I have not installed center-code in this Node version yet
+
+I need to quickly install same tool in all Node versions.
+
+## Install and use
+
+    npm i -g all-nvm
+
+Installs itseslf under several aliases: `all-nvm`, `nvm-all` and my favorite alias `all`.
+Make `all-nvm` available in all Node versions right after install
+
+    all npm i -g all-nvm
+
+With `all-nvm` it is simple to run the same command in all Node versions managed by NVM.
+For example, if you want to [speed up NPM installs](https://github.com/npm/npm/issues/11283) 
+by removing the progress indicator
+
+    
+
+This should solve the problem of global tools discussed in multiple issues 
+on [NVM tracker](https://github.com/creationix/nvm/issues).
 
 ## Details
 
