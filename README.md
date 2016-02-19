@@ -43,6 +43,13 @@ Install a global tool [as-a](https://github.com/bahmutov/as-a) in all Node versi
 
     all npm i -g as-a
 
+Run unit tests in the current project in all local Node versions 
+(similar to [testen](https://github.com/egoist/testen) or [trevor](https://www.npmjs.com/package/trevor))
+
+    all npm test
+
+TODO: run command in only specific Node versions, see [issues/2](https://github.com/bahmutov/all-nvm/issues/2)
+
 ## Details
 
 I was inspired by the command `exec` already 
@@ -61,6 +68,12 @@ to run `nvm --version`
 and to run same command on a particular Node version
 
     sh -c '. ~/.nvm/nvm.sh && nvm exec <node version> <command>'
+
+## Debug
+
+To see verbose output from this tool, run with environment variable DEBUG set to `all`
+
+    DEBUG=all all ...
 
 ### Small print
 

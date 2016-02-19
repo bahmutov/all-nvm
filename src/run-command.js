@@ -1,6 +1,6 @@
 'use strict'
 
-const debug = require('debug')('as-a')
+const debug = require('debug')('all')
 const la = require('lazy-ass')
 const is = require('check-more-types')
 const spawn = require('cross-spawn-async')

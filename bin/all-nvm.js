@@ -1,15 +1,18 @@
 #!/usr/bin/env node
 
-const debug = require('debug')('all-nvm')
+const debug = require('debug')('all')
 const la = require('lazy-ass')
 const is = require('check-more-types')
 const join = require('path').join
 
+const help =
+  'use    : all-nvm <any command> [any options]\n' +
+  'example: all-nvm npm i -g manpm'
+
 require('simple-bin-help')({
   minArguments: 4,
   packagePath: join(__dirname, '..', 'package.json'),
-  help: 'use    : all-nvm <any command> [any options]\n' +
-    'example: all-nvm npm i -g manpm'
+  help: help
 })
 
 const args = process.argv.slice(2)

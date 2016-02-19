@@ -1,4 +1,4 @@
-const debug = require('debug')('all-nvm')
+const debug = require('debug')('all')
 const la = require('lazy-ass')
 const is = require('check-more-types')
 const runCommand = require('./src/run-command')

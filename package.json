@@ -11,7 +11,13 @@
     "all": "bin/all-nvm.js"
   },
   "preferGlobal": true,
+  "files": [
+    "bin",
+    "index.js",
+    "src"
+  ],
   "scripts": {
+    "pretest": "npm run lint",
     "test": "npm run lint",
     "lint": "standard --verbose *.js bin/*.js src/*.js",
     "commit": "commit-wizard",
