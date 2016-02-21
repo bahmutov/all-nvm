@@ -53,7 +53,7 @@ function allNvm (commandWithOptions) {
   la(is.not.empty(commandWithOptions),
     'missing command, needs at least something', commandWithOptions)
 
-  return nvmApi.load(runAll.bind(null, commandWithOptions))
+  return nvmApi.loadAsync(runAll.bind(null, commandWithOptions))
 }
 
 module.exports = allNvm
