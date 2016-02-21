@@ -22,3 +22,7 @@ debug('command to run', args)
 const allNvm = require('..')
 la(is.fn(allNvm), 'expected function', allNvm)
 allNvm(args)
+  .catch((err) => {
+    console.error(err.stack)
+    process.exit(-1)
+  })
