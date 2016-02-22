@@ -36,8 +36,12 @@ function runCommandForVersion (command, nodeVersion) {
 function runAll (commandWithOptions, api) {
   debug('loaded NVM api with properties', Object.keys(api))
 
-  const runOptions = findOptions(commandWithOptions)
-  debug('CLI options', runOptions)
+  const parsedOptions = findOptions(commandWithOptions)
+  debug('CLI options', parsedOptions)
+
+  const runOptions = parsedOptions.options
+  const cliArguments = parsedOptions.args
+  la(is.array(cliArguments), 'expected remaining arguments', cliArguments)
 
   return api.installedAsync(false)
     .tap(function (nodeVersions) {
@@ -55,7 +59,7 @@ function runAll (commandWithOptions, api) {
       }
     })
     .then(function (nodeVersions) {
-      const runForNode = runCommandForVersion.bind(null, commandWithOptions)
+      const runForNode = runCommandForVersion.bind(null, cliArguments)
       return Promise.mapSeries(nodeVersions, runForNode)
     })
 }

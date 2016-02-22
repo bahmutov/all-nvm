@@ -36,21 +36,32 @@ function normalizeOption (s) {
   return s.split(',').map((x) => x.trim())
 }
 
+/*
+  args: list of CLI arguments
+  returns an object
+    options: object with found options
+    args: remaining command line arguments without options
+*/
 function findOptions (args) {
-  la(is.array(args))
+  la(is.array(args), 'expected list of arguments', args)
+
   const options = {}
+  const result = {
+    options: options,
+    args: args
+  }
 
   if (is.empty(args)) {
-    return options
+    return result
   }
 
   if (!isOption(args[0])) {
-    return options
+    return result
   }
 
   if (!isKnownOption(args[0])) {
     debug('unknown option', args[0])
-    return options
+    return result
   }
   debug('has option', args[0])
 
@@ -58,8 +69,8 @@ function findOptions (args) {
   const normalValue = normalizeOption(args[1])
   debug('normalized', normalName, '=', normalValue)
   options[normalName] = normalValue
-
-  return options
+  result.args = args.slice(2)
+  return result
 }
 
 module.exports = findOptions

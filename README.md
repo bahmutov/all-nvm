@@ -48,7 +48,18 @@ Run unit tests in the current project in all local Node versions
 
     all npm test
 
-TODO: run command in only specific Node versions, see [issues/2](https://github.com/bahmutov/all-nvm/issues/2)
+### Limit Node versions
+
+You can pick which versions of Node to use using `--node` (`-n`) command line option.
+Uses prefix matching via [semver.satisfies](https://www.npmjs.com/package/semver)
+
+    all --node 4 node -v
+    # runs on all installed Node 4 versions (like 4.1.0, 4.2.2, etc)
+    all -n 0.10,5 npm test
+    # runs `npm test` on Node 5 and 0.10
+
+With this feature, you can use `all-nvm` to quickly unit tests across multiple Node versions,
+like [testen](https://github.com/egoist/testen) or [trevor](https://www.npmjs.com/package/trevor)
 
 ## Details
 
