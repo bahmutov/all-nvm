@@ -59,6 +59,7 @@
     "simple-bin-help": "1.6.0"
   },
   "devDependencies": {
+    "lodash": "4.5.0",
     "mocha": "2.4.5",
     "pre-git": "3.4.0",
     "rocha": "2.0.0",

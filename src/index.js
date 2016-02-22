@@ -5,6 +5,8 @@ const runCommand = require('./run-command')
 const Promise = require('bluebird')
 const nvmApi = Promise.promisifyAll(require('nvm-api'))
 const hr = require('hr')
+const findOptions = require('./find-options')
+const filterVersions = require('./filter-versions')
 
 /*
   Note
@@ -32,13 +34,25 @@ function runCommandForVersion (command, nodeVersion) {
 }
 
 function runAll (commandWithOptions, api) {
-  debug('loaded NVM api', api)
+  debug('loaded NVM api with properties', Object.keys(api))
+
+  const runOptions = findOptions(commandWithOptions)
+  debug('CLI options', runOptions)
 
   return api.installedAsync(false)
     .tap(function (nodeVersions) {
       la(is.array(nodeVersions),
         'expected list of installed node versions', nodeVersions)
       debug('installed node versions', nodeVersions)
+    })
+    .then(function (nodeVersions) {
+      if (is.array(runOptions.node)) {
+        const filtered = filterVersions(runOptions.node, nodeVersions)
+        debug('filtered node versions', filtered)
+        return filtered
+      } else {
+        return nodeVersions
+      }
     })
     .then(function (nodeVersions) {
       const runForNode = runCommandForVersion.bind(null, commandWithOptions)
