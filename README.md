@@ -13,7 +13,7 @@ Part of my favorite [little Node tools](https://glebbahmutov.com/blog/my-node-to
 If you are like me, you have probably several Node versions installed locally and managed
 using [NVM](https://github.com/creationix/nvm). I also use bunch of small global tools
 like [npm-quick-run](https://github.com/bahmutov/npm-quick-run),
-[next-update](https://github.com/bahmutov/next-update), 
+[next-update](https://github.com/bahmutov/next-update),
 [center-code](https://github.com/bahmutov/center-code). It is very frustrating to run
 
     center <filename>
@@ -34,7 +34,7 @@ Make `all-nvm` available in all Node versions right after install
 ## Use
 
 With `all-nvm` it is simple to run the same command in all Node versions managed by NVM.
-For example, if you want to [speed up NPM installs](https://github.com/npm/npm/issues/11283) 
+For example, if you want to [speed up NPM installs](https://github.com/npm/npm/issues/11283)
 by removing the progress indicator
 
     all npm set progress=false
@@ -43,7 +43,7 @@ Install a global tool [as-a](https://github.com/bahmutov/as-a) in all Node versi
 
     all npm i -g as-a
 
-Run unit tests in the current project in all local Node versions 
+Run unit tests in the current project in all local Node versions
 (similar to [testen](https://github.com/egoist/testen) or [trevor](https://www.npmjs.com/package/trevor))
 
     all npm test
@@ -61,9 +61,17 @@ Uses prefix matching via [semver.satisfies](https://www.npmjs.com/package/semver
 With this feature, you can use `all-nvm` to quickly unit tests across multiple Node versions,
 like [testen](https://github.com/egoist/testen) or [trevor](https://www.npmjs.com/package/trevor)
 
+## Hint
+
+You can see all NPM global packages already installed by running
+
+```sh
+npm ls -g --depth 0
+```
+
 ## Details
 
-I was inspired by the command `exec` already 
+I was inspired by the command `exec` already
 [available in NVM](https://github.com/creationix/nvm#usage) - it runs any command in
 the specified Node version. For example
 
