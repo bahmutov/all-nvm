@@ -43,6 +43,7 @@ function runAll (commandWithOptions, api) {
   const cliArguments = parsedOptions.args
   la(is.array(cliArguments), 'expected remaining arguments', cliArguments)
 
+  // use nvm-api installed method to find local Node versions
   return api.installedAsync(false)
     .tap(function (nodeVersions) {
       la(is.array(nodeVersions),
